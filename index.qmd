@@ -1,0 +1,14 @@
+---
+title: "Lawrence"
+image: "images/S__145547266.jpg"
+
+about:
+  template: jolla
+  links:
+    - icon: envelope
+      href: mailto:lal035@ucsd.edu
+    - icon: linkedin
+      href: https://www.linkedin.com/in/lawrence-lin-19725828a/
+---
+
+Welcome to my website!

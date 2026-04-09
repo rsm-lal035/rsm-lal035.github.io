@@ -1,0 +1,23 @@
+---
+title: "Professional Experience"
+---
+## Data Analyst Intern
+**California High-Speed Rail Authority (CHSRA)**
+*Aug 2024 – Dec 2024*
+
+- Cleaned and structured educational data from 38 U.S. universities using Excel.
+- Developed interactive Tableau dashboards covering 6 job categories and 55 skill areas to support workforce planning.
+- Evaluated skill coverage and training readiness across academic programs.
+- Recommended outreach and partnership strategies for underrepresented job types and regions.
+
+## Dashboard Preview
+
+[View my Tableau Dashboard](https://public.tableau.com/app/profile/chi.yen.lin/viz/USRailwayEducationFinalVersion/Dashboard)
+
+<iframe
+  src="https://public.tableau.com/views/USRailwayEducationFinalVersion/Dashboard?:showVizHome=no"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
