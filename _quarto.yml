@@ -15,7 +15,7 @@ website:
       - href: Experience.qmd
         text: Experience
 
-site-url: https://rsm-la035.github.io/
+site-url: https://rsm-lal035.github.io/
 
 format:
   html:
