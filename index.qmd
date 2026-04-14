@@ -1,5 +1,5 @@
 ---
-title: "Lawrence"
+title: "Lawrence Lin"
 image: "images/S__145547266.jpg"
 
 about:
