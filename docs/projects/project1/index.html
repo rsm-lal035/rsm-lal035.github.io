@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lawrence Lin">
-<meta name="dcterms.date" content="2026-04-14">
+<meta name="dcterms.date" content="2026-04-21">
 
 <title>A/B Testing a Call to Action – Lawrence Lin</title>
 <style>
@@ -226,7 +226,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 14, 2026</p>
+      <p class="date">April 21, 2026</p>
     </div>
   </div>
   
@@ -259,7 +259,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="simulating-data">Simulating Data</h2>
 <p>In a real A/B test, we would not know the true sign-up probabilities in advance. We would only observe the data and try to estimate them. For this exercise, I set the probabilities myself so I can compare my estimates to the true value. I use Python to simulate the data.</p>
 <p>I assume that (_A = 0.22) and (_B = 0.18), so the true difference is (= 0.04).</p>
-<div id="df0893de" class="cell" data-execution_count="1">
+<div id="b4ad5896" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -292,7 +292,7 @@ Observed difference: 0.036</code></pre>
 <section id="the-law-of-large-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="the-law-of-large-numbers">The Law of Large Numbers</h2>
 <p>The Law of Large Numbers says that as the sample size grows, the sample average gets closer to the true population average. In this A/B testing example, that means the estimated difference in sign-up rates, ( = {X}_A - {X}_B), should get closer to the true difference (= 0.04) as we observe more visitors. The estimate may move around a lot at first, but with a larger sample it should become more stable.</p>
-<div id="a6b1b1fc" class="cell" data-message="false" data-execution_count="2">
+<div id="92314741" class="cell" data-message="false" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -310,7 +310,7 @@ Observed difference: 0.036</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-3-output-1.png" width="675" height="449" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-3-output-1.png" width="674" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -322,7 +322,7 @@ Observed difference: 0.036</code></pre>
 <p>So far, I have estimated the difference in sign-up rates between the two CTAs. The next question is how precise that estimate is. A point estimate gives a single best guess, but it does not tell us how much uncertainty comes with that guess. To measure that uncertainty, I use the bootstrap.</p>
 <p>The bootstrap is a resampling method. Instead of relying only on a formula, I repeatedly resample from the observed data with replacement and recalculate the statistic each time. Here, I resample the A group and the B group separately, compute the difference in sample means for each resample, and use the standard deviation of those resampled estimates as the bootstrap standard error.</p>
 <p>I also compare the bootstrap standard error to the analytical standard error for the difference in two independent sample proportions. If the two values are close, that suggests the bootstrap is doing a good job capturing the sampling variability of the estimator.</p>
-<div id="187c5964" class="cell" data-message="false" data-execution_count="3">
+<div id="6c385895" class="cell" data-message="false" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -415,7 +415,7 @@ Observed difference: 0.036</code></pre>
 </div>
 </div>
 </div>
-<div id="15dc45bc" class="cell" data-message="false" data-execution_count="4">
+<div id="2e5bd6a4" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -431,7 +431,7 @@ Observed difference: 0.036</code></pre>
 <h2 class="anchored" data-anchor-id="the-central-limit-theorem">The Central Limit Theorem</h2>
 <p>The Central Limit Theorem says that as the sample size gets larger, the sampling distribution of a sample mean becomes approximately Normal, even if the original data are not Normally distributed. In this A/B testing setup, the same idea applies to the difference in sample means, ( = {X}_A - {X}_B). Since each outcome is binary, the raw data are definitely not Normal, but the distribution of () should become smoother and more bell-shaped as the sample size increases.</p>
 <p>To show this, I simulate the A/B test many times for four different sample sizes: (n = 25, 50, 100,) and (500). For each value of (n), I repeatedly draw samples from the two Bernoulli distributions, compute (), and then plot the distribution of those simulated estimates.</p>
-<div id="cf97337e" class="cell" data-message="false" data-execution_count="5">
+<div id="7a9184c8" class="cell" data-message="false" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -473,7 +473,7 @@ Observed difference: 0.036</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-6-output-1.png" width="1141" height="753" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="1142" height="755" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -499,7 +499,7 @@ z = \frac{\hat{\theta} - 0}{SE(\hat{\theta})}
 \]</span></p>
 <p>This standardization matters because the CLT tells us that <span class="math inline">\(\hat{\theta}\)</span> is approximately Normally distributed when the sample size is large. Under the null hypothesis, that distribution is centered at 0. Once I divide by the standard error, the test statistic is approximately standard Normal under <span class="math inline">\(H_0\)</span>, which means I can use the standard Normal distribution to calculate a p-value.</p>
 <p>This is sometimes loosely called a t-test, but in this setting it is more accurate to think of it as a large-sample z-test. A classical t-test comes from Normal data with an estimated variance, which gives an exact t-distribution result. Here the data are Bernoulli, not Normal, so there is no exact t-distribution result. Instead, the justification comes from the CLT. In practice, with large samples the t and Normal distributions are very similar, so the difference is usually small, but the logic behind the test is still worth understanding.</p>
-<div id="312d76e1" class="cell" data-message="false" data-execution_count="6">
+<div id="c609602b" class="cell" data-message="false" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>z_stat <span class="op">=</span> theta_hat <span class="op">/</span> analytical_se</span>
@@ -566,7 +566,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 \beta_1 = \pi_A - \pi_B = \theta
 \]</span></p>
 <p>So in this setting, the OLS estimate <span class="math inline">\(\hat{\beta}_1\)</span> should match the difference in sample means <span class="math inline">\(\hat{\theta} = \bar{X}_A - \bar{X}_B\)</span>.</p>
-<div id="260249aa" class="cell" data-message="false" data-execution_count="7">
+<div id="56c8e266" class="cell" data-message="false" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df_reg <span class="op">=</span> df.copy()</span>
@@ -628,7 +628,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 </div>
 </div>
 </div>
-<div id="02c98917" class="cell" data-message="false" data-execution_count="8">
+<div id="3ce6fe80" class="cell" data-message="false" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -696,7 +696,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 <p>One important problem in A/B testing is <strong>peeking</strong>, which means checking the results before the planned sample size has been reached. Imagine a manager who does not want to wait until all 1,000 visitors per group have arrived. Instead, she checks the results after every 100 visitors in each group and stops the test early if the p-value is below 0.05.</p>
 <p>This is a problem for classical frequentist testing because a 5% significance level only controls the false positive rate for <strong>one</strong> test. If I keep testing the data again and again as new observations come in, each additional look creates another chance to get a significant result just by luck. As a result, the overall probability of making at least one false rejection becomes much larger than 5%.</p>
 <p>To show this, I simulate a world where the null hypothesis is actually true. I set both sign-up probabilities equal to 0.20, so there is no real difference between CTA A and CTA B. Then I repeatedly run A/B tests, peek after every 100 observations per group, and record whether at least one of those peeks produces a p-value below 0.05.</p>
-<div id="c1cf0868" class="cell" data-message="false" data-execution_count="9">
+<div id="35e53ae5" class="cell" data-message="false" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -782,7 +782,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 </div>
 </div>
 </div>
-<div id="fc82fe11" class="cell" data-message="false" data-execution_count="10">
+<div id="b94fae1e" class="cell" data-message="false" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
