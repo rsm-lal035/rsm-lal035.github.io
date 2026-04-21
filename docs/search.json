@@ -25,7 +25,7 @@
     "href": "projects.html",
     "title": "My Projects",
     "section": "",
-    "text": "A/B Testing a Call to Action\n\n\n\n\n\n\nLawrence Lin\n\n\nApr 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "A/B Testing a Call to Action\n\n\n\n\n\n\nLawrence Lin\n\n\nApr 21, 2026\n\n\n\n\n\n\n\n\n\n\n\nReplication of Karlan and List (2007)\n\n\n\n\n\n\nLawrence Lin\n\n\nApr 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -117,5 +117,33 @@
     "title": "Lawrence Lin",
     "section": "",
     "text": "Welcome to my website!"
+  },
+  {
+    "objectID": "projects/HW2/hw2_questions.html",
+    "href": "projects/HW2/hw2_questions.html",
+    "title": "Replication of Karlan and List (2007)",
+    "section": "",
+    "text": "Karlan and List (2007) study whether matching grants increase charitable giving. In their field experiment, prior donors were randomly assigned to receive either a standard fundraising letter or a letter offering a matching grant. Because treatment was randomly assigned, differences between the treatment and control groups can be interpreted causally. S In this replication, I do three things. First, I replicate part of Table 1 to check whether treatment and control are balanced on observable characteristics. Second, I replicate the main results from Table 2A, Panel A. Third, I replicate one column of Table 3 using a simple linear regression. As an additional step, I graph response rates by match ratio."
+  },
+  {
+    "objectID": "projects/HW2/hw2_questions.html#introduction",
+    "href": "projects/HW2/hw2_questions.html#introduction",
+    "title": "Replication of Karlan and List (2007)",
+    "section": "",
+    "text": "Karlan and List (2007) study whether matching grants increase charitable giving. In their field experiment, prior donors were randomly assigned to receive either a standard fundraising letter or a letter offering a matching grant. Because treatment was randomly assigned, differences between the treatment and control groups can be interpreted causally. S In this replication, I do three things. First, I replicate part of Table 1 to check whether treatment and control are balanced on observable characteristics. Second, I replicate the main results from Table 2A, Panel A. Third, I replicate one column of Table 3 using a simple linear regression. As an additional step, I graph response rates by match ratio."
+  },
+  {
+    "objectID": "projects/HW2/hw2_questions.html#main-analysis",
+    "href": "projects/HW2/hw2_questions.html#main-analysis",
+    "title": "Replication of Karlan and List (2007)",
+    "section": "Main Analysis",
+    "text": "Main Analysis\n\nReplicating part of Table 1\nI first replicate part of Table 1 by comparing several pre-treatment characteristics across the treatment and control groups. Because the matching-grant offer was randomly assigned, the two groups should look very similar on observable variables if the randomization worked correctly. This balance check is important because it helps show that later differences in giving are not driven by selection bias.\n\n\n\n\n\n\n\n\n\nVariable\nTreatment Mean\nControl Mean\nDifference\np-value\n\n\n\n\n0\nMonths since last donation\n13.012\n12.998\n0.014\n0.905\n\n\n1\nHighest previous contribution\n59.597\n58.960\n0.637\n0.332\n\n\n2\nNumber of prior donations\n8.035\n8.047\n-0.012\n0.912\n\n\n3\nYears since initial donation\n6.078\n6.136\n-0.058\n0.275\n\n\n4\nAlready donated in 2005\n0.524\n0.523\n0.001\n0.862\n\n\n\n\n\n\n\nThe treatment and control groups are very similar on these measured characteristics. This is consistent with successful random assignment and suggests that the experiment did not generate meaningful selection bias on observable variables.\n\n\nReplicating Table 2A, Panel A\nNext, I replicate the main outcomes from Table 2A, Panel A. I report the control group, the overall treatment group, and the three treatment subgroups defined by the match ratio: 1:1, 2:1, and 3:1. I focus on the response rate, average dollars given across all letters, and average dollars given conditional on making a donation.\n\n\n\n\n\n\n\n\n\nGroup\nResponse Rate\nAverage Dollars (Unconditional)\nAverage Dollars | Donated\nN\n\n\n\n\n0\nControl\n0.018\n0.813\n45.540001\n16687\n\n\n1\nTreatment\n0.022\n0.967\n43.872002\n33396\n\n\n2\n1:1\n0.021\n0.937\n45.143002\n11133\n\n\n3\n2:1\n0.023\n1.026\n45.337002\n11134\n\n\n4\n3:1\n0.023\n0.938\n41.251999\n11129"
+  },
+  {
+    "objectID": "projects/HW2/hw2_questions.html#something-additional",
+    "href": "projects/HW2/hw2_questions.html#something-additional",
+    "title": "Replication of Karlan and List (2007)",
+    "section": "Something Additional",
+    "text": "Something Additional\nAs an additional step, I present the main Table 2A result graphically. The paper reports these response rates in a table, but a figure makes the pattern easier to see. In particular, it helps show that offering any match increases giving relative to the control group, while higher match ratios do not generate a clear additional increase."
   }
 ]

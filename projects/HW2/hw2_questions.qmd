@@ -14,7 +14,7 @@ execute:
 ## Introduction
 
 Karlan and List (2007) study whether matching grants increase charitable giving. In their field experiment, prior donors were randomly assigned to receive either a standard fundraising letter or a letter offering a matching grant. Because treatment was randomly assigned, differences between the treatment and control groups can be interpreted causally.
-
+S
 In this replication, I do three things. First, I replicate part of Table 1 to check whether treatment and control are balanced on observable characteristics. Second, I replicate the main results from Table 2A, Panel A. Third, I replicate one column of Table 3 using a simple linear regression. As an additional step, I graph response rates by match ratio.
 
 ```{python}
@@ -25,7 +25,7 @@ import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
 from IPython.display import display
 
-df = pd.read_stata("AERtables1-5.dta")
+df = pd.read_stata("/home/jovyan/MGTA 495 Marketing/AERtables1-5.dta")
 df.columns = [c.lower() for c in df.columns]
 
 def pick(cands):
