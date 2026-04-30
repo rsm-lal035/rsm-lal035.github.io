@@ -459,3 +459,5 @@ plt.show()
 The simulation shows that peeking raises the false positive rate well above the usual 5% level. In my simulation, the empirical false positive rate increases to about 0.2039. That means that even when there is truly no difference between the two CTAs, repeated testing creates many chances to get a significant result just by random variation.
 
 This matters in practice because stopping a test early after a “lucky” result can make an ineffective CTA look like a winner. In other words, peeking inflates the Type I error rate and makes false discoveries much more likely. If a team wants to monitor results over time, it should use methods designed for sequential testing rather than repeatedly applying an ordinary 5% hypothesis test.
+
+Otherwise, the reported “significance” may simply reflect random noise rather than a true effect.
